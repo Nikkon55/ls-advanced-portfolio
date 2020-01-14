@@ -9,7 +9,32 @@ html(lang="en")
     title Portfolio | main page
   body
     .wrapper
-      .maincontent
-        +image('content/user.jpg', 'user-pic')
-        +icon('link', 'link-class')
-        .icon-bg
+      section.section.intro
+        .container
+          header.header
+            span.initials NK
+            nav.nav
+              ul.nav__list
+                li.nav__item
+                  a.nav__link(href="#") Main
+                li.nav__item
+                  a.nav__link(href="#") About me
+                li.nav__item
+                  a.nav__link(href="#") Skills
+                li.nav__item
+                  a.nav__link(href="#") Portfolio
+                li.nav__item
+                  a.nav__link(href="#") Testimonial
+                li.nav__item
+                  a.nav__link(href="#") Contacts
+            .social
+              ul.social__list
+                li.social__item
+                  a.social__link(href="#")
+                    +icon(insta, social__icon)
+                  a.social__link(href="#")
+                    +icon(vk, social__icon)
+                  a.social__link(href="#")
+                    +icon(github, social__icon)
+                
+            
