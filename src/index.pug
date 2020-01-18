@@ -9,41 +9,42 @@ html(lang="en")
     title Portfolio | main page
   body
     .wrapper
-      section.section.intro
-        .container
-          header.header
-            span.initials NK
-            nav.nav
-              ul.nav__list
-                li.nav__item
-                  a.nav__link(href="#") Main
-                li.nav__item
-                  a.nav__link(href="#") About me
-                li.nav__item
-                  a.nav__link(href="#") Skills
-                li.nav__item
-                  a.nav__link(href="#") Portfolio
-                li.nav__item
-                  a.nav__link(href="#") Testimonial
-                li.nav__item
-                  a.nav__link(href="#") Contacts
-            .social
-              ul.social__list
-                li.social__item
-                  a.social__link(href="#")
-                    .social__icon.social__icon--insta
-                li.social__item
-                  a.social__link(href="#")
-                    .social__icon.social__icon--vk
-                li.social__item
-                  a.social__link(href="#")
-                    .social__icon.social__icon--github
-          .intro-text
-            .intro-text__left Personal<br/> portfolio page
-            .intro-text__right Nikolai<br/> Kononenko
-          a.scroll(href="#")
-            .scroll__icon
-      section.section.about
+      .welcome-section
+        section.section.intro
+          .container
+            header.header
+              span.initials NK
+              nav.nav
+                ul.nav__list
+                  li.nav__item
+                    a.nav__link(href="#") Main
+                  li.nav__item
+                    a.nav__link(href="#") About me
+                  li.nav__item
+                    a.nav__link(href="#") Skills
+                  li.nav__item
+                    a.nav__link(href="#") Portfolio
+                  li.nav__item
+                    a.nav__link(href="#") Testimonial
+                  li.nav__item
+                    a.nav__link(href="#") Contacts
+              .social
+                ul.social__list
+                  li.social__item
+                    a.social__link(href="#")
+                      .social__icon.social__icon--insta
+                  li.social__item
+                    a.social__link(href="#")
+                      .social__icon.social__icon--vk
+                  li.social__item
+                    a.social__link(href="#")
+                      .social__icon.social__icon--github
+            .intro-text
+              .intro-text__left Personal<br/> portfolio page
+              .intro-text__right Nikolai<br/> Kononenko
+            a.scroll(href="#")
+              .scroll__icon
+        section.section.about
         .container.about__container
           .about__left
             .user
@@ -60,7 +61,7 @@ html(lang="en")
                 each row in rows
                   tr.user__table-row
                     each cell in row
-                      td #{cell}
+                      td.user__table-cell #{cell}
 
           .about__right
             p.about__intro Hi, my name is
@@ -68,6 +69,42 @@ html(lang="en")
             .about__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam labore accusamus magni, nulla neque molestiae ad esse eligendi magnam assumenda porro ex iusto necessitatibus excepturi a eveniet deleniti eaque rerum!
             .about__purpose Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse temporibus similique voluptatibus dignissimos provident voluptatum eum reiciendis id dolorum, iusto, ab voluptate minima dolore! Id maiores ipsa cupiditate quo voluptatem!
             
+    section.competence
+      .container
+        .competence__desc
+          .competence__desc-headline Here is how i can help you
+          .competence__desc-text Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic quam voluptates dolorem deserunt perspiciatis accusantium excepturi blanditiis accusamus provident cupiditate sunt, vitae, corrupti magni debitis, dicta a temporibus quo reprehenderit!
+        .competence__content
+          -
+            var items = [
+              ['Front-end', ['HTML5', 'CSS3', 'Javascipt', 'Vue.js']],
+              ['Workflow', ['GIT', 'Terminal', 'Gulp', 'Webpack']]
+            ];
+          ul.skills-graphic
+            each row in items
+              li.skills-graphic__item
+                .skills-row
+                  .skills-row__title #{row[0]}
+                  .skills-row__content
+                    ul.skills
+                      each skill in row[1]
+                        li.skills__item
+                          .skill
+                            svg(viewbox="0 0 200 200" preserveAspectRatio="none").skill__shape
+                              defs.defs
+                                linearGradient(x1="0%" y1="50%" x2="100%" y2="100%")#skill__gradient
+                                  stop(offset="60%" stop-color="#5500f2").skill__fill--start
+                                  stop(offset="100%" stop-color="#ad00ed").skill__fill--stop
+                              circle(
+                                r="67" cx="100" cy="100"
+                              ).skill__circle.skill__circle--under
+                              circle(
+                                r="67" cx="100" cy="100" stroke="url(#skill__gradient)" transform="rotate(-180 100 100)" style=`animation-delay:${skill[1]};`
+                              ).skill__circle.skill__circle--above
+                            .skill__title #{skill}
+
+
+
 
                   
                   
