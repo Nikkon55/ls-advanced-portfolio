@@ -1,7 +1,36 @@
 .competence {
     min-width: 100%;
-    min-height: 100%;
-    background-image: url(~images/content/bg-skills.jpg);
+    background-image: url(~images/content/hands.png), url(~images/content/bg-skills.jpg);
+    background-repeat: no-repeat, no-repeat;
+    background-size: auto, cover;
+    background-position: -10% 0%, top left;
+}
+
+.competence__container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* background-image: url(~images/content/hands.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-position: -10% 5%; */
+}
+
+.competence__desc-headline {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 60px;
+}
+
+.competence__desc-text{
+    font-weight: 400;
+    opacity: 0.5;
+}
+
+.competence__desc {
+    margin-bottom: 95px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 50%
 }
