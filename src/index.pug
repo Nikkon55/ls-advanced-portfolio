@@ -166,30 +166,67 @@ html(lang="en")
                         .quote__author-occ Loftschool founder
         
         section.contact
-          h2.contact__title Contact me
-          .contact__form
-            form.form()
-              .form__row
-                label.form__block
-                  .form__title
-                  .form__input-row
-                    .form__icon.form__icon--user
-                    input.form__input(type="text" name="name" required)
-                label.form__block
-                  .form__title
-                  .form__input-row
-                    .form__icon.form__icon--envelope
-                    input.form__input(type="text" name="email" required)
-              .form__row
-                label.form__block
-                  .form__title
-                  .form__input-row
-                    .form__icon.form__icon--message
-                    textarea(name="message", cols="30", rows="10").form__input
-
-
-
-
+          .container
+            h2.contact__title Contact me
+            .contact__form
+              form.form()
+                .form__row
+                  label.form__block
+                    .form__title Input your name
+                    .form__input-row
+                      .form__icon.form__icon--user
+                      input.form__input(type="text" name="name" placeholder ="Firstname Lastname" required)
+                  label.form__block
+                    .form__title Input your email
+                    .form__input-row
+                      .form__icon.form__icon--envelope
+                      input.form__input(type="text" name="email" placeholder ="example@email.com" required)
+                .form__row
+                  label.form__block.form__block--texarea
+                    .form__title Write your message here
+                    .form__input-row
+                      .form__icon.form__icon--message
+                      textarea(name="message", cols="30", rows="10", placeholder ="Here you can describe tasks and concept").form__input.form__input--textarea
+                button.form__btn(type="submit") Send
+      footer.footer
+        .container.footer__container
+          .footer__copyright
+            .copyright__year &copy 2019
+            .copyright__info
+              .copyright__name Nikolai<br/> Kononenko
+              .copyright__desc Personal<br/> portfolio webpage
+          .footer__content
+            nav.nav.nav--footer
+                ul.nav__list
+                  li.nav__item
+                    a.nav__link(href="#") Main
+                  li.nav__item
+                    a.nav__link(href="#") About me
+                  li.nav__item
+                    a.nav__link(href="#") Skills
+                  li.nav__item
+                    a.nav__link(href="#") Portfolio
+                  li.nav__item
+                    a.nav__link(href="#") Testimonial
+                  li.nav__item
+                    a.nav__link(href="#") Contacts
+            .footer__content-colums
+              .footer__content-col
+                .footer__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum explicabo quasi delectus architecto porro quis debitis.
+                .footer__social
+                  ul.social__list
+                    li.social__item
+                      a.social__link(href="#")
+                        .social__icon.social__icon--insta
+                    li.social__item
+                      a.social__link(href="#")
+                        .social__icon.social__icon--vk
+                    li.social__item
+                      a.social__link(href="#")
+                        .social__icon.social__icon--github
+              .footer__content-col
+                .footer__quote Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi itaque repellendus distinctio deserunt sint, ratione minima, minus sit enim, nisi esse reprehenderit. 
+                .footer__quote-auth Martin Goldwick
 
                   
                   
