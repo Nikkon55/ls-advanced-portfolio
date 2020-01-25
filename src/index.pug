@@ -43,6 +43,7 @@ html(lang="en")
               .intro-text__left Personal<br/> portfolio page
               .intro-text__right Nikolai<br/> Kononenko
             a.scroll(href="#")
+              .scroll-text Scroll
               .scroll__icon
         section.section.about
         .container.about__container
@@ -125,8 +126,10 @@ html(lang="en")
                         a.slider-list__link(href="#")
                           +image('content/prew3.jpg', 'slider-list__img', 'slider-list__img')
                   .slider__buttons
-                    a.direction-btn.direction-btn--prev(href="#") a
-                    a.direction-btn.direction-btn--next(href="#") a
+                    a.direction-btn.direction-btn--next(href="#")
+                      .direction-btn__icon
+                    a.direction-btn.direction-btn--prev(href="#")
+                      .direction-btn__icon
                   .slider__slide-count 2
               .slider__info
                 .slider__tags
