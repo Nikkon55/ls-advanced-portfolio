@@ -85,6 +85,7 @@ html(lang="en")
             .competence__desc-headline Here is how i can help you
             .competence__desc-text Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic quam voluptates dolorem deserunt perspiciatis accusantium excepturi blanditiis accusamus provident cupiditate sunt, vitae, corrupti magni debitis, dicta a temporibus quo reprehenderit!
           .competence__content
+            #skills-component
             -
               var items = [
                 ['Front-end', [['HTML5','-25s'], ['CSS3','-15s'], ['Javascipt','-25s'], ['Vue.js','-25s']]],
@@ -157,18 +158,18 @@ html(lang="en")
         .parallax-footer
           .parallax-footer__item.parallax-footer__item--1(data-speed="0")
           .parallax-footer__item.parallax-footer__item--2(data-speed="0.25")
-        section.reviews
+        section.reviews(@click="checkArrows" @touchend="checkArrows")
           .container
             .reviews__first-line
               h2.reviews__title People tell about me
               .reviews-slider__controls
-                .reviews-slider__controls-btn.reviews-slider__controls-btn--left
+                .reviews-slider__controls-btn.reviews-slider__controls-btn--left(@click="previous" :disabled="true")
                   .reviews-slider__controls-btn-icon
-                .reviews-slider__controls-btn.reviews-slider__controls-btn--right
+                .reviews-slider__controls-btn.reviews-slider__controls-btn--right(@click="next" :disabled="false")
                   .reviews-slider__controls-btn-icon
-            ul.reviews-slider
-              -for (i=0;i<2;i++)
-                li.reviews-slider__item
+            flickity(ref="flickity" :options="flickityOptions").reviews-slider
+              -for (i=0;i<5;i++)
+                .reviews-slider__item.carousel-cell
                   .reviews-slider__img
                     .reviews-slider__icon
                   .quote
@@ -244,6 +245,6 @@ html(lang="en")
                 .footer__quote-auth Martin Goldwick
 
                   
-                  
+include ./components/entry.pug                  
                 
             
