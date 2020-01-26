@@ -6,9 +6,8 @@
     top: 0;
     z-index: -1;
     overflow: hidden;
-    /* background: linear-gradient(to top, #222427 0%, rgba(34, 36, 39, 0) 100%);
-    background-size: cover; */
 }
+    
 
 .parallax-header__item {
     width: 100%;
@@ -17,30 +16,51 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-repeat: no-repeat;
+    background-size: contain;
     
     &--1 {
-        background-image: url(~images/content/layer1.png);
+        background-image: url(~images/content/layer1.jpg);
         top: 0;
         left: 0;
-        
+        background-size: cover;
         z-index: 1;
         
     }
     &--2 {
         background-image: url(~images/content/layer2.png);
         
-        top: 500px;
+        top: 420px;
         z-index: 2;
     }
     &--3 {
-        background-image: url(~images/content/layer3.png);
-        top: 948px;
+        top: 450px;
         z-index: 3;
+        background-image: url(~images/content/layer3.png);
+        
     }
     &--4 {
         background-image: url(~images/content/layer4.png);
-        top: 1224px;
+        top: 780px;
         z-index: 4;
+    }
+    &--5{
+        background: #1d2022;
+        bottom: 0;
+        top: 80%;
+
+    }
+    &-image {
+        width: 100%;
+        height: auto;
+    }
+    &-gradient {
+        z-index: 5;
+        background: linear-gradient(to top, #222427 0%, rgba(34, 36, 39, 0) 100%) 0 0 repeat-x;
+        /*background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(34,36,39,1) 100%);*/
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: -1px;
     }
 }

@@ -15,6 +15,9 @@ window.addEventListener("scroll", e => {
     // console.log(bottomSectionPosition)
     // const scrollFromTop = document.querySelector('.works').offsetHeight
     // console.log(scrollFromTop)
-    const wScroll = window.pageYOffset - 3000;
-    moveLayersOnScroll(wScroll);
+    //const wScroll = window.pageYOffset;
+    var bottomSectionOffset = document.querySelector('.bottom-section').getBoundingClientRect().top;
+    //console.log("wScroll: "+wScroll);
+    console.log("bsof: "+bottomSectionOffset);
+    if (bottomSectionOffset > 0) { moveLayersOnScroll(bottomSectionOffset); }
 });

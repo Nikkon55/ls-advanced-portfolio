@@ -14,7 +14,11 @@ html(lang="en")
           .parallax-header__item.parallax-header__item--1(data-speed="0.1")
           .parallax-header__item.parallax-header__item--2(data-speed="0.1")
           .parallax-header__item.parallax-header__item--3(data-speed="0.1")
+            //- +image('content/layer3.png', 'parallax-header__item-image','bg')
+            //- .parallax-header__item-gradient
           .parallax-header__item.parallax-header__item--4(data-speed="0.001")
+          .parallax-header__item.parallax-header__item--5
+          
         section.section.intro
           .container
             header.header
@@ -51,29 +55,29 @@ html(lang="en")
               .scroll-text Scroll
               .scroll__icon
         section.section.about
-        .container.about__container
-          .about__left
-            .user
-              .user__avatar.avatar
-                +image("content/user.jpg", "avatar__pic", "user__pic")
-              ul.user__desc
-              -
-                var rows = [
-                  ['Location:','Helsinki'],
-                  ['Age:', '29'],
-                  ['DOB:', '10 March 1990']
-                ];
-              table.user__table
-                each row in rows
-                  tr.user__table-row
-                    each cell in row
-                      td.user__table-cell #{cell}
+          .container.about__container
+            .about__left
+              .user
+                .user__avatar.avatar
+                  +image("content/user.jpg", "avatar__pic", "user__pic")
+                ul.user__desc
+                -
+                  var rows = [
+                    ['Location:','Helsinki'],
+                    ['Age:', '29'],
+                    ['DOB:', '10 March 1990']
+                  ];
+                table.user__table
+                  each row in rows
+                    tr.user__table-row
+                      each cell in row
+                        td.user__table-cell #{cell}
 
-          .about__right
-            p.about__intro Hi, my name is
-            h2.about__name Nikolai Kononenko
-            .about__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam labore accusamus magni, nulla neque molestiae ad esse eligendi magnam assumenda porro ex iusto necessitatibus excepturi a eveniet deleniti eaque rerum!
-            .about__purpose Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse temporibus similique voluptatibus dignissimos provident voluptatum eum reiciendis id dolorum, iusto, ab voluptate minima dolore! Id maiores ipsa cupiditate quo voluptatem!
+            .about__right
+              p.about__intro Hi, my name is
+              h2.about__name Nikolai Kononenko
+              .about__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam labore accusamus magni, nulla neque molestiae ad esse eligendi magnam assumenda porro ex iusto necessitatibus excepturi a eveniet deleniti eaque rerum!
+              .about__purpose Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse temporibus similique voluptatibus dignissimos provident voluptatum eum reiciendis id dolorum, iusto, ab voluptate minima dolore! Id maiores ipsa cupiditate quo voluptatem!
             
       section.competence
         .container.competence__container
