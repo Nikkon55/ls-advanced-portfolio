@@ -13,15 +13,17 @@
         background-repeat:no-repeat;
         background-size: cover;
         background-position:top left;
+        height: 100%;
         &:after{
             content: "";
             background-image: url(~images/content/hands.png);
             background-repeat: no-repeat;
             background-size: contain;
             position: absolute;
-            bottom: 0;
-            height: 100%;
-            width: 100%;
+            bottom: -5%;
+            left: 23%;
+            height: 50%;
+            width: 50%;
             transform: rotate(-90deg);
 
         }
@@ -65,5 +67,10 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 50%
+    width: 50%;
+    @include tablets {
+        z-index: 1;
+        align-items: center;
+        
+    }
 }
