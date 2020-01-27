@@ -1,0 +1,20 @@
+[
+    {
+        "skillsGroup": "Frontend",
+        "skills":{
+            "HTML5": "-25s",
+            "CSS3": "-45s",
+            "Javascript": "-25s",
+            "Vue.js": "-25s"
+        }
+    },
+    {
+        "skillsGroup": "WorkFlow",
+        "skills":{
+            "GIT": "-45s",
+            "Terminal": "-45s",
+            "Gulp": "-25s",
+            "Webpack": "-95s"
+        }  
+    }
+]

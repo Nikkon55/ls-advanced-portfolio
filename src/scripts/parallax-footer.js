@@ -18,6 +18,6 @@ window.addEventListener("scroll", e => {
     //const wScroll = window.pageYOffset;
     var bottomSectionOffset = document.querySelector('.bottom-section').getBoundingClientRect().top;
     //console.log("wScroll: "+wScroll);
-    console.log("bsof: "+bottomSectionOffset);
+    
     if (bottomSectionOffset > 0) { moveLayersOnScroll(bottomSectionOffset); }
 });
