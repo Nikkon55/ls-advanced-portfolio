@@ -6,6 +6,9 @@
     display: flex;
     padding-bottom: 80px;
     padding-top: 80px;
+    @include tablets {
+        justify-content: space-between;
+    }
 }
 
 .footer__copyright {
@@ -14,17 +17,34 @@
 }
 
 .footer__content {
-    width: 70%
+    width: 70%;
+    @include tablets {
+        width: 65%;
+    }
 }
 
 .footer__content-colums {
     display: flex;
     justify-content: space-between;
+    @include tablets {
+        flex-direction: column;
+    }
 }
 
 .footer__content-col{
     width: 45%;
+    @include tablets {
+        width: 100%;
+        margin-bottom: 60px;
+    }
+    
 }
+
+@include tablets {
+       .footer__content-col:last-child{
+           margin-bottom: 0;
+       }
+    }
 
 .footer__text, .footer__quote {
     opacity: 0.3;
@@ -71,5 +91,10 @@
     margin-bottom: 35px;
 }
 
+@include tablets {
+    .footer .nav {
+        display: block;
+    }
 
+}
 

@@ -2,7 +2,16 @@
     font-size: 36px;
     font-weight: 700;
     margin-bottom: 82px;
+    @include tablets {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 60px;
+    }
+    
 }
 .contact__form {
-    width: 60%
+    width: 60%;
+    @include tablets {
+        width: 100%;
+    }    
 }
