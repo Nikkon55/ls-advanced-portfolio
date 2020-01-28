@@ -14,7 +14,7 @@ new Vue({
         prevNextButtons: false,
         pageDots: false,
         wrapAround: false,
-        groupCells: 2,
+        groupCells: true,
         freeScroll: false,
         contain: true
         

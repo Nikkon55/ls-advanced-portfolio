@@ -10,11 +10,20 @@
 .about__container {
     display: flex;
     justify-content: space-between;
+    @include phones {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 .about__left {
     width: 30%;
     @include tablets{
         width: 40%;
+    }
+    @include phones {
+        width: 100%;
+        margin-bottom: 50px;
     }
     
 }
@@ -22,6 +31,9 @@
     width: 60%;
     @include tablets{
         width: 55%;
+    }
+    @include phones {
+        width: 90%;
     }
 }
 
@@ -34,6 +46,9 @@
     font-size: 36px;
     font-weight: 700;
     margin-bottom: 30px;
+    @include phones {
+        font-size: 30px;
+    }
     
 }
 
@@ -41,6 +56,9 @@
     opacity: 0.5;
     font-size: 16px;
     margin-bottom: 100px;
+    @include phones {
+        margin-bottom: 50px;
+    }
 }
 
 .about__purpose {

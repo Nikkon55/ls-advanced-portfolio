@@ -9,10 +9,19 @@
     @include tablets {
         justify-content: space-between;
     }
+    
+    @include phones {
+        flex-direction: column;
+    }
+
 }
 
 .footer__copyright {
     width: 20%;
+    @include phones {
+        width: 100%;
+        margin-bottom: 50px;
+    }
     
 }
 
@@ -20,6 +29,9 @@
     width: 70%;
     @include tablets {
         width: 65%;
+    }
+    @include phones {
+        width: 100%;
     }
 }
 
@@ -82,7 +94,28 @@
 
 .nav--footer {
     margin-bottom: 56px;
+    @include phones {
+        margin-bottom: 50px;
+    }
 }
+.nav--footer .nav__list {
+    @include phones {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-left: -60px;
+    }
+}
+
+.nav--footer .nav__item {
+    @include phones {
+        margin-right: 0;
+        margin-left: 80px;
+        margin-bottom: 30px;
+    }
+}
+
 
 .footer__text {
     margin-bottom: 27px;

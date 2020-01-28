@@ -25,6 +25,10 @@
             height: 50%;
             width: 50%;
             transform: rotate(-90deg);
+            @include phones {
+                bottom: -17%;
+                left: 66%;
+            }
 
         }
         
@@ -52,6 +56,9 @@
         margin-bottom: 30px;
         text-align: center;
     }
+    @include phones{
+        text-align: left;
+    }
 }
 
 .competence__desc-text{
@@ -59,6 +66,9 @@
     opacity: 0.5;
     @include tablets{
         text-align: center;
+    }
+    @include phones{
+        text-align: left;
     }
 }
 
@@ -72,5 +82,16 @@
         z-index: 1;
         align-items: center;
         
+    }
+    @include phones {
+        width: 90%;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-bottom: 58px;
+    }
+}
+.competence__content {
+    @include phones {
+        width: 90%;
     }
 }

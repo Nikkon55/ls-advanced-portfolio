@@ -37,9 +37,12 @@
 }
 
 .reviews-slider__item {
-display: flex;
-width: 50%;
-/* justify-content: space-between; */
+    display: flex;
+    width: 50%;
+    @include phones {
+        width: 100%;
+    }
+    /* justify-content: space-between; */
 }
 .reviews-slider__icon {
     background: svg-load('quote.svg', fill=$text-color, width=100%, height=100%);
@@ -47,8 +50,15 @@ width: 50%;
     height: 59px;
     width: 69px;
     opacity: 0.05;
+    @include phones {
+        height: 22px;
+        width: 26px;
+    }
 }
 
 .reviews-slider__img {
     margin-right: 20px;
+    @include phones {
+        margin-right: 0;
+    }
 }

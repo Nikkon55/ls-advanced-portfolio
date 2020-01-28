@@ -80,8 +80,17 @@
 .form__row {
     width: 100%;
 }
+.form__row--first-row{
+    @include phones {
+        display: flex;
+        flex-direction: column;
+    }
+}
 .form__block {
     width: 45%;
+    @include phones {
+        width: 100%;
+    }
 }
 .form__block--texarea {
     width: 100%

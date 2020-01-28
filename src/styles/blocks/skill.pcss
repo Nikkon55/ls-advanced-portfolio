@@ -6,11 +6,16 @@
     @include tablets {
         z-index: 1;
     }
+    @include phones {
+        height: 110px;
+        width: 110px;
+    }
 
     &__circle{
         &--under{
             stroke: #423d3c;
             stroke-width: 3px;
+            
         }
         &--above{
             stroke-width: 13px;
@@ -45,4 +50,9 @@
 }
 .skill__shape{
     height: 100%;
+    @include phones {
+        height: 100px;
+        width: 100px;
+    }
+    
 }

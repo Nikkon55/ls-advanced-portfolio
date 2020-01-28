@@ -9,11 +9,17 @@
     @include tablets{
         border-spacing: 40px 15px;
     }
+    @include phones {
+        border-spacing: 36px 15px;
+    }
 }
 .user__avatar {
     width: 200px;
     height: 200px;
     margin-bottom: 80px;
+    @include phones {
+        margin-bottom: 30px;
+    }
 }
 .user__table-cell:first-child {
     opacity: 0.5;
