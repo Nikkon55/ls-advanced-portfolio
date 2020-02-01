@@ -88,6 +88,7 @@
 }
 .form__block {
     width: 45%;
+    position: relative;
     @include phones {
         width: 100%;
     }
@@ -98,6 +99,46 @@
 .form__input--textarea {
     width: 100%;
     height: 54px;
+}
+
+.form__input-error {
+    background-color: #cd1515;
+    padding: 3px 15px;
+    text-align: center;
+    position: absolute;
+    top: 110%;
+    left: 20%;
+    display: none;
+    opacity: 0;
+    &:before{
+        content: '';
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 7.5px 7px 7.5px;
+        border-color: transparent transparent #cd1515 transparent;
+    }
+}
+
+.error .form__input-error{
+    display: block;
+    opacity: 1;
+}
+
+.error .form__input-row{
+    border-bottom: 2px #cd1515 solid;
+    &:hover{
+    filter: brightness(0) saturate(100%) invert(18%) sepia(58%) saturate(5682%) hue-rotate(353deg) brightness(87%) contrast(96%);
+    opacity: 1; 
+    }
+}
+.error .form__icon {
+    filter: brightness(0) saturate(100%) invert(18%) sepia(58%) saturate(5682%) hue-rotate(353deg) brightness(87%) contrast(96%);
+    opacity: 1;
 }
 .form__btn {
     font-size: 18px;

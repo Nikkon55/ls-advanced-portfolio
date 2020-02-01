@@ -8,6 +8,9 @@ import "./scripts/parallax";
 import "./scripts/parallax-footer";
 import "./scripts/reviews";
 import "./scripts/skills";
+import "./scripts/contacts";
+import "./scripts/works";
+
 
 
 

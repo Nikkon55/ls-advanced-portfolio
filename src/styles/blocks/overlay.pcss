@@ -1,0 +1,44 @@
+.overlay{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1000;
+    background-color: #2d3c4e;
+    opacity: 0.9;
+    top: 0;
+    left: 0;
+}
+.overlay__content {
+    padding: 60px 100px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #414c63;
+    opacity: 1;
+    z-index: 9999;
+}
+
+.overlay__btn{
+    display: block;
+    font-size: 18px;
+    color: $text-color;
+    font-weight: 700;
+    background-color: #ff9a00;
+    padding: 33px 120px;
+    text-transform: uppercase;
+    @include tablets {
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+.overlay__message {
+    margin-bottom: 30px;
+}
+
+.disabled.overlay{
+    display: none;
+}
+

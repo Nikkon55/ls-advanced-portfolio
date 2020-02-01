@@ -92,39 +92,40 @@ html(lang="en")
         .container.work__container
           h2.works__title My projects
           .works__content
-            .slider
-              .slider__display
-                .slider__display-pic
-                  +image('content/prew1.jpg', 'slider__display--img', 'slider__display--img')
-                  .slider__preview
-                    ul.slider-list
-                      li.slider-list__item
-                        a.slider-list__link(href="#")
-                          +image('content/prew1.jpg', 'slider-list__img', 'slider-list__img')
-                      li.slider-list__item
-                        a.slider-list__link(href="#")
-                          +image('content/prew2.jpg', 'slider-list__img', 'slider-list__img')
-                      li.slider-list__item
-                        a.slider-list__link(href="#")
-                          +image('content/prew3.jpg', 'slider-list__img', 'slider-list__img')
-                  .slider__buttons
-                    a.direction-btn.direction-btn--next(href="#")
-                      .direction-btn__icon
-                    a.direction-btn.direction-btn--prev(href="#")
-                      .direction-btn__icon
-                  .slider__slide-count 2
-              .slider__info
-                .slider__tags
-                  ul.tags
-                    -var tags = ['HTML','CSS','Javascript']
-                    each tag in tags
-                      li.tags__item #{tag}
-                .slider__info-text
-                  h3.slider__info-title School website project
-                  .slider__info-desc Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, id! Aperiam reprehenderit deserunt nobis ut eum tempore rem.
-                a.iconed-link
-                  .iconed-link__icon
-                  .iconed-link__text Open link     
+            #slider-component
+            //- .slider
+            //-   .slider__display
+            //-     .slider__display-pic
+            //-       +image('content/prew1.jpg', 'slider__display--img', 'slider__display--img')
+            //-       .slider__preview
+            //-         ul.slider-list
+            //-           li.slider-list__item
+            //-             a.slider-list__link(href="#")
+            //-               +image('content/prew1.jpg', 'slider-list__img', 'slider-list__img')
+            //-           li.slider-list__item
+            //-             a.slider-list__link(href="#")
+            //-               +image('content/prew2.jpg', 'slider-list__img', 'slider-list__img')
+            //-           li.slider-list__item
+            //-             a.slider-list__link(href="#")
+            //-               +image('content/prew3.jpg', 'slider-list__img', 'slider-list__img')
+            //-       .slider__buttons
+            //-         a.direction-btn.direction-btn--next(href="#")
+            //-           .direction-btn__icon
+            //-         a.direction-btn.direction-btn--prev(href="#")
+            //-           .direction-btn__icon
+            //-       .slider__slide-count 2
+            //-   .slider__info
+            //-     .slider__tags
+            //-       ul.tags
+            //-         -var tags = ['HTML','CSS','Javascript']
+            //-         each tag in tags
+            //-           li.tags__item #{tag}
+            //-     .slider__info-text
+            //-       h3.slider__info-title School website project
+            //-       .slider__info-desc Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, id! Aperiam reprehenderit deserunt nobis ut eum tempore rem.
+            //-     a.iconed-link
+            //-       .iconed-link__icon
+            //-       .iconed-link__text Open link     
 
       .bottom-section
         .parallax-footer
@@ -157,25 +158,32 @@ html(lang="en")
           .container
             h2.contact__title Contact me
             .contact__form
-              form.form()
+              form.form(@submit.prevent="submitForm")
                 .form__row.form__row--first-row
-                  label.form__block
+                  label.form__block(:class="{error: !nameValid}")
                     .form__title Input your name
                     .form__input-row
                       .form__icon.form__icon--user
-                      input.form__input(type="text" name="name" placeholder ="Firstname Lastname" required)
-                  label.form__block
+                      input.form__input.form__input--name(type="text" name="name" placeholder ="Firstname Lastname" required @input='validateName' onFocus="this.placeholder=''")
+                    .form__input-error {{nameError}}
+                  label.form__block(:class="{error: !emailValid}")
                     .form__title Input your email
                     .form__input-row
                       .form__icon.form__icon--envelope
-                      input.form__input(type="text" name="email" placeholder ="example@email.com" required)
+                      input.form__input.form__input--email(type="text" name="email" placeholder ="example@email.com" required @input='validateEmail' onFocus="this.placeholder=''")
+                    .form__input-error {{emailError}}
                 .form__row
-                  label.form__block.form__block--texarea
+                  label.form__block.form__block--texarea(:class="{error: !messageValid}")
                     .form__title Write your message here
                     .form__input-row
                       .form__icon.form__icon--message
-                      textarea(name="message", cols="30", rows="10", placeholder ="Here you can describe tasks and concept").form__input.form__input--textarea
+                      textarea(name="message", cols="30", rows="10", placeholder ="Here you can describe tasks and concept" @input='validateMessage' onFocus="this.placeholder=''").form__input.form__input--textarea
+                    .form__input-error {{messageError}}
                 button.form__btn(type="submit") Send
+                .overlay(:class="{disabled: overlayHidden}" @click="hideOverlay")
+                  .overlay__content
+                    .overlay__message {{resultMessage}}
+                    button.overlay__btn(@click.prevent="hideOverlay") Закрыть
       footer.footer
         .container.footer__container
           .footer__copyright
