@@ -6,10 +6,34 @@
     width: 178px;
     height: 100px;
     object-fit: cover;
+    position: relative;
+    
 }
 
+
+
+.active.slider-list__item{
+    border: 3px solid $gold;
+}
 .slider-list__img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+.slider-list__overlay {
+position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: $gold;
+}
+
+.slider-list__item:hover .slider-list__overlay{
+    opacity: 0.7;
 }

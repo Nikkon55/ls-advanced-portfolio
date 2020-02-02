@@ -17,7 +17,7 @@ const display = {
     components: {
         preview, btns
     },
-    props: ["works","currentWork"],
+    props: ["works","currentWork","currentIndex"],
     computed: {
         reversedWorks(){
             return [...this.works].reverse();
@@ -28,13 +28,20 @@ const display = {
 
 
 const tags = {
-    template:'#slider-tags'
+    template:'#slider-tags',
+    props: ["tags"]
 };
 
 const info = {
     template:'#slider-info',
     components: {tags},
-    props: ["currentWork"]
+    props: ["currentWork"],
+    computed: {
+        tagsArray() {
+            return this.currentWork.skills.split(', ');
+            
+        }
+    }
 };
 
 

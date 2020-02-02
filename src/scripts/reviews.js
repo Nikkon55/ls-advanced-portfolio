@@ -42,6 +42,15 @@ new Vue({
             this.$el.querySelector('.reviews-slider__controls-btn--left').disabled = false;
             this.$el.querySelector('.reviews-slider__controls-btn--right').disabled = false;
         }
+    },
+    checkResize(){
+      this.$refs.flickity.resize();
+      
     }
+  },
+
+  created(){
+    setTimeout(this.checkResize, 1000);
+    
   }
 });

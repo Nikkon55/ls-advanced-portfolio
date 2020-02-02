@@ -1,6 +1,9 @@
 {
   "text-color": "#ffffff",
   "dark-text": "#333c49",
+  "adminFont": "#414c63",
+  "purple": "#383bcf",
+  "adminBg": "#f9fafe",
   "gold":"#ff9a00",
   "links-color": "#4b6fd7",
   "bp-desktop-hd": "1800px",

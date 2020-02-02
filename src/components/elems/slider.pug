@@ -1,6 +1,6 @@
 script(type="text/x-template")#slider-container
     .slider
-        display(:works="works" :currentWork="currentWork" @slide="handleSlide")
+        display(:works="works" :currentWork="currentWork" @slide="handleSlide" :currentIndex="currentIndex")
         info(:currentWork="currentWork")
 
 
@@ -11,7 +11,7 @@ script(type="text/x-template")#slider-display
             .slider__preview
                 btns(@slide="$emit('slide', $event)")
                 preview(:works="reversedWorks" :currentWork="currentWork")   
-            .slider__slide-count 2
+            .slider__slide-count {{currentIndex+1}}
     
 
 script(type="text/x-template")#slider-preview
@@ -22,6 +22,7 @@ script(type="text/x-template")#slider-preview
             )
             a.slider-list__link(href="#")
                 img(:src="work.photo", alt="", class="slider-list__img")
+                .slider-list__overlay
                 
         
 
@@ -34,7 +35,9 @@ script(type="text/x-template")#slider-btns
 
 script(type="text/x-template")#slider-info
     .slider__info
-        tags()
+        tags(
+            :tags="tagsArray"
+            )
         .slider__info-text
             h3.slider__info-title {{currentWork.title}}
             .slider__info-desc {{currentWork.desc}}
@@ -45,6 +48,4 @@ script(type="text/x-template")#slider-info
 script(type="text/x-template")#slider-tags
     .slider__tags
         ul.tags
-            -var tags = ['HTML','CSS','Javascript']
-            each tag in tags
-                li.tags__item #{tag}
+            li.tags__item(v-for="tag in tags") {{tag}}
