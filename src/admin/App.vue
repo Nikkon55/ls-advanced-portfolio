@@ -128,8 +128,56 @@
               button.add-btn.add-btn--skill-add
                 .add-btn__img
                   .add-btn__icon
+    section.works
+      .container
+        .works__header
+          h1.works__title.section__title Section "Portfolio"
+        .works__content
+          form.form.works__form
+            .form__header
+              h2.form__title Edit Portfolio
+            .form__content.form__content--works
+              .form__content-left
+                .form__row.form__row--upload
+                  label.form__label-upload
+                    .form__label-info Drag&Drop or choose the Image
+                    input.form__file-upload(type="file")
+                    button.form__file-btn.main-btn Upload
+              .form__content-right
+                .form-row
+                  label.form__label Project name
+                    input.form__input(type="text" name="name")
+                .form-row
+                  label.form__label Link
+                    input.form__input(type="text" name="link")
+                .form-row
+                  label.form__label Description
+                    input.form__input.form__input--textarea(type="textarea" name="desc")
+                .form-row
+                  label.form__label Add Tags
+                    input.form__input.form__input--tags(type="text" name="text")
+                  .form__tags
+                    .form__tag-item
+                      .form__tag-text HTML
+                      .form__tag-icon
+                    .form__tag-item
+                      .form__tag-text HTML
+                      .form__tag-icon
+                    .form__tag-item
+                      .form__tag-text HTML
+                      .form__tag-icon
+                    
+            .form__controls
+              button.form__reset-btn(type="reset") Cancel
+              button.form__btn-submit.main-btn(type="submit") Submit
+
+
+
+
+
                    
-                   
+
+
 
 
 
@@ -150,6 +198,10 @@ body{
   width: 100%;
   height: 100%;
   color: $adminFont;
+}
+
+.wrapper{
+  background: $adminBg;
 }
 
 .header{
@@ -245,7 +297,7 @@ body{
     }
 }
 .about{
-  background: $adminBg;
+  
   width:100vw;
   height: 100vh;
 }
@@ -495,6 +547,130 @@ position: relative;
   display: flex;
 }
 
+//- worksworksworksworksworksworksworksworksworksworksworksworksworksworksworksworksworksworks
 
+.section__title{
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.works{
+  &__title{
+    margin-bottom: 60px;
+  }
+
+  &__form{
+    width: 95%;
+  }
+}
+.works__form{
+  padding: 2% 2%;
+}
+
+.form__header{
+  margin-bottom: 48px;
+}
+
+.form__content--works{
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__content-left{
+  width: 49%;
+}
+.form__content-right{
+  width: 50%
+}
+
+.form__label-upload{
+  min-height: 275px;
+  background-color: #dee4ed;
+  border: 1px dashed #a1a1a1;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+.form__label-info{
+  opacity: 0.5;
+  color: #414c63;
+  font-weight: 400;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 27px;
+  
+}
+.form__file-upload{
+  display: none;
+}
+.main-btn{
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 19px 45px;
+  background: linear-gradient(to right, #006aed 0%, #3f35cb 100%);
+  border-radius: 25px;
+}
+
+.form__label{
+  opacity: 0.5;
+  color: #414c63;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.form-row{
+  margin-bottom: 30px;
+}
+
+.form__input--textarea{
+  min-height: 145px;
+  border: 1px solid #414c63;
+}
+
+.form__tags{
+  display: flex;
+}
+
+.form__tag-item{
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 15px;
+  background-color: #f4f4f4;
+  margin-right: 9px;
+}
+
+.form__tag-text{
+  opacity: 0.7;
+  color: #283340;
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-right: 9px;
+}
+
+.form__tag-icon{
+  height: 11px;
+  width: 11px;
+  background: svg-load("cross.svg", fill="#414c63", height=100%, width=100%);
+}
+.form__input--tags{
+  margin-bottom: 19px;
+}
+.form__controls{
+  display: flex;
+  justify-content: flex-end;
+}
+.form__reset-btn{
+  background-color: transparent;
+  color: #383bcf;
+  font-size: 16px;
+  font-weight: 400;
+  margin-right: 59px;
+}
 
 </style>
