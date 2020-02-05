@@ -722,13 +722,23 @@ position: relative;
 .form__content--works{
   display: flex;
   justify-content: space-between;
+  @include tablets {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .form__content-left{
   width: 49%;
+  @include tablets {
+    width:80%;
+  }
 }
 .form__content-right{
-  width: 50%
+  width: 50%;
+  @include tablets {
+    width:80%;
+  }
 }
 
 .form__label-upload{
@@ -839,6 +849,9 @@ position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @include tablets {
+    width: 48%;
+  }
 }
 
 .works__add-btn-circle{
@@ -872,6 +885,9 @@ position: relative;
   padding-bottom: 40px;
   box-shadow: 0.375rem 0.4375rem 0.3125rem 0 rgba(0,0,0,.07);
   margin-bottom: 31px;
+  @include tablets {
+    width: 48%;
+  }
 }
 .works__image{
   position: relative;
@@ -975,6 +991,9 @@ position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @include tablets {
+    width:28%;
+  }
 }
 
 .form__content--reviews .form__content-right{
@@ -1041,6 +1060,9 @@ position: relative;
   
   box-shadow: 0.375rem 0.4375rem 0.3125rem 0 rgba(0,0,0,.07);
   margin-bottom: 31px;
+  @include tablets {
+    width: 48%;
+  }
 }
 
 .reviews__user{
