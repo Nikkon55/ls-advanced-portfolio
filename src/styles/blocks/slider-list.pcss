@@ -1,6 +1,9 @@
 .slider-list {
     display: flex;
     justify-content: flex-end;
+    @include phones {
+     display: none;   
+    }
 }
 .slider-list__item {
     width: 178px;
