@@ -1,108 +1,108 @@
 <template lang="pug">
-    section.about
-        .container
-            .about__first-row
-                .about__title "About-me" section
-                button.add-btn
-                .add-btn__img
-                    .add-btn__icon
-                .add-btn__text add new group
-            .about__content
-                form.about__form.form
+  section.about
+      .container
+          .about__first-row
+            .about__title "About-me" section
+            button.add-btn
+              .add-btn__img
+                  .add-btn__icon
+              .add-btn__text add new group
+          .about__content
+              form.about__form.form
                 .form__header
                     .form__title
-                    input.form__input.form__input--name(type="text" name="name" placeholder ="Frontend")
+                      input.form__input.form__input--name(type="text" name="name" placeholder ="Frontend")
                     .form__control-btns
-                    .btns__edit
+                      .btns__edit
                         .btn-edit__container
-                        button.btn-edit
+                          button.btn-edit
                         .btn-delete__container 
-                        button.btn-delete
-                    .btns__yes-no.hidden
+                          button.btn-delete
+                      .btns__yes-no.hidden
                         .btn-yes__container
-                        button.btn-yes
+                          button.btn-yes
                         .btn-no__container  
-                        button.btn-no
+                          button.btn-no
                 .form__content
                 .form__bottom
                     input.input.input.form__input.form__input--skill-add(type="text" name="name" placeholder ="New skill")
                     .form__input--persent-box
                     input.input.form__input--persent(type="number" min="0" max="100")
                     button.add-btn.add-btn--skill-add
-                    .add-btn__img
+                      .add-btn__img
                         .add-btn__icon
 
-                form.about__form.form
+              form.about__form.form
                 .form__header
-                    .form__title
+                  .form__title
                     input.form__input.form__input--name(type="text" name="name" placeholder ="Frontend")
-                    .form__control-btns
+                  .form__control-btns
                     .btns__edit
-                        .btn-edit__container
+                      .btn-edit__container
                         button.btn-edit
-                        .btn-delete__container 
+                      .btn-delete__container 
                         button.btn-delete
                     .btns__yes-no.hidden
-                        .btn-yes__container
+                      .btn-yes__container
                         button.btn-yes
-                        .btn-no__container  
+                      .btn-no__container  
                         button.btn-no
                 .form__content
                     .form__row
-                    .form__row-input-box
-                        input.form__row-input(type="text" name="name" placeholder ="Frontend")
-                    .form__row--persent-box
-                        input.input.form__row-input--persent(type="number" min="0" max="100")
-                    .form__control-btns
+                      .form__row-input-box
+                          input.form__row-input(type="text" name="name" placeholder ="Frontend")
+                      .form__row--persent-box
+                          input.input.form__row-input--persent(type="number" min="0" max="100")
+                      .form__control-btns
                         .btns__edit
-                        .btn-edit__container
-                            button.btn-edit
-                        .btn-delete__container 
-                            button.btn-delete
+                          .btn-edit__container
+                              button.btn-edit
+                          .btn-delete__container 
+                              button.btn-delete
                         .btns__yes-no.hidden
-                        .btn-yes__container
-                            button.btn-yes
-                        .btn-no__container  
-                            button.btn-no
+                          .btn-yes__container
+                              button.btn-yes
+                          .btn-no__container  
+                              button.btn-no
                     .form__row
-                    .form__row-input-box
-                        input.form__row-input(type="text" name="name" placeholder ="Frontend")
-                    .form__row--persent-box
-                        input.input.form__row-input--persent(type="number" min="0" max="100")
-                    .form__control-btns
-                        .btns__edit
-                        .btn-edit__container
-                            button.btn-edit
-                        .btn-delete__container 
-                            button.btn-delete
-                        .btns__yes-no.hidden
-                        .btn-yes__container
-                            button.btn-yes
-                        .btn-no__container  
-                            button.btn-no
+                      .form__row-input-box
+                          input.form__row-input(type="text" name="name" placeholder ="Frontend")
+                      .form__row--persent-box
+                          input.input.form__row-input--persent(type="number" min="0" max="100")
+                      .form__control-btns
+                          .btns__edit
+                            .btn-edit__container
+                                button.btn-edit
+                            .btn-delete__container 
+                                button.btn-delete
+                          .btns__yes-no.hidden
+                            .btn-yes__container
+                                button.btn-yes
+                            .btn-no__container  
+                                button.btn-no
                     .form__row
-                    .form__row-input-box
-                        input.form__row-input(type="text" name="name" placeholder ="Frontend")
-                    .form__row--persent-box
-                        input.input.form__row-input--persent(type="number" min="0" max="100")
-                    .form__control-btns
-                        .btns__edit
-                        .btn-edit__container
-                            button.btn-edit
-                        .btn-delete__container 
-                            button.btn-delete
-                        .btns__yes-no.hidden
-                        .btn-yes__container
-                            button.btn-yes
-                        .btn-no__container  
-                            button.btn-no                 
+                      .form__row-input-box
+                          input.form__row-input(type="text" name="name" placeholder ="Frontend")
+                      .form__row--persent-box
+                          input.input.form__row-input--persent(type="number" min="0" max="100")
+                      .form__control-btns
+                          .btns__edit
+                            .btn-edit__container
+                                button.btn-edit
+                            .btn-delete__container 
+                                button.btn-delete
+                          .btns__yes-no.hidden
+                            .btn-yes__container
+                                button.btn-yes
+                            .btn-no__container  
+                                button.btn-no                 
 
                 .form__bottom
                     input.input.input.form__input.form__input--skill-add(type="text" name="name" placeholder ="New skill")
                     .form__input--persent-box
-                    input.input.form__input--persent(type="number" min="0" max="100")
+                      input.input.form__input--persent(type="number" min="0" max="100")
                     button.add-btn.add-btn--skill-add
-                    .add-btn__img
+                      .add-btn__img
                         .add-btn__icon
 </template>
 

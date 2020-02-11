@@ -22,7 +22,7 @@
               li.nav__item
                 a.nav__link(href="#") Testimonial  
 
-          router-view
+    router-view
 
 
 </template>
