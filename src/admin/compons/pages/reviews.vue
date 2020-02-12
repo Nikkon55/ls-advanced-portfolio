@@ -1,86 +1,86 @@
 <template lang="pug">
     .reviews-big-section
-        section.reviews
+      section.reviews
         .container
-            .reviews__header
+          .reviews__header
             h1.reviews__title.section__title Section "Testimonial"
-            .works__content
+          .works__content
             form.reviews__form
-                .form__header
+              .form__header
                 h2.form__title New Testimonial
-                .form__content.form__content--reviews
+              .form__content.form__content--reviews
                 .form__content-left
-                    .form__user-pic
+                  .form__user-pic
                     .form__user-icon-box
-                        .form__user-icon
-                    input.form__file-upload(type="file")
-                    button.user-pic-upload-btn Upload photo
+                      .form__user-icon
+                  input.form__file-upload(type="file")
+                  button.user-pic-upload-btn Upload photo
                 .form__content-right
-                    .form-row--2elements
+                  .form-row--2elements
                     .form-row
-                        label.form__label Author name
-                        input.form__input(type="text" name="name")
+                      label.form__label Author name
+                      input.form__input(type="text" name="name")
                     .form-row
-                        label.form__label Occupation
-                        input.form__input(type="text" name="prof")
-                    .form-row
+                      label.form__label Occupation
+                      input.form__input(type="text" name="prof")
+                  .form-row
                     label.form__label Text
-                        input.form__input.form__input--textarea(type="textarea" name="desc")
-                    .form__controls
+                      input.form__input.form__input--textarea(type="textarea" name="desc")
+                  .form__controls
                     button.form__reset-btn(type="reset") Cancel
                     button.form__btn-submit.main-btn(type="submit") Submit
-        section.reviews__preview
-            .container
-                .reviews__list
-                    a.reviews__add-btn.add-btn--square
-                        .works__add-btn-circle
-                        .works__add-btn-cross +
-                        .works__add-btn-text Add new reviews
-                    .reviews__item
-                        .reviews__user
-                        .reviews__avatar
-                            img.reviews__pic(src="../../../images/content/user.jpg")
-                        .reviews__info
-                            .reviews__name Vladimir Sabantsev
-                            .reviews__occup Front-end developer
-                        .reviews__desc Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur dignissimos ducimus ea eaque earum eum impedit ipsam laborum, modi nemo officiis optio possimus recusandae repellendus sunt suscipit tenetur velit!
-                        .reviews__control
-                        button.reviws__btn.span-btn.span-btn--edit
-                            .span-btn__text Edit
-                            .span-btn__icon.span-btn__icon--edit
-                        button.reviews__btn.span-btn.span-btn--delete
-                            .span-btn__text Delete
-                            .span-btn__icon.span-btn__icon--delete
-                    .reviews__item
-                        .reviews__user
-                        .reviews__avatar
-                            img.reviews__pic(src="../../../images/content/user.jpg")
-                        .reviews__info
-                            .reviews__name Vladimir Sabantsev
-                            .reviews__occup Front-end developer
-                        .reviews__desc Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur dignissimos ducimus ea eaque earum eum impedit ipsam laborum, modi nemo officiis optio possimus recusandae repellendus sunt suscipit tenetur velit!
-                        .reviews__control
-                        button.reviws__btn.span-btn.span-btn--edit
-                            .span-btn__text Edit
-                            .span-btn__icon.span-btn__icon--edit
-                        button.reviews__btn.span-btn.span-btn--delete
-                            .span-btn__text Delete
-                            .span-btn__icon.span-btn__icon--delete
-                    .reviews__item
-                        .reviews__user
-                        .reviews__avatar
-                            img.reviews__pic(src="../../../images/content/user.jpg")
-                        .reviews__info
-                            .reviews__name Vladimir Sabantsev
-                            .reviews__occup Front-end developer
-                        .reviews__desc Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur dignissimos ducimus ea eaque earum eum impedit ipsam laborum, modi nemo officiis optio possimus recusandae repellendus sunt suscipit tenetur velit!
-                        .reviews__control
-                        button.reviws__btn.span-btn.span-btn--edit
-                            .span-btn__text Edit
-                            .span-btn__icon.span-btn__icon--edit
-                        button.reviews__btn.span-btn.span-btn--delete
-                            .span-btn__text Delete
-                            .span-btn__icon.span-btn__icon--delete
+      section.reviews__preview
+        .container
+            .reviews__list
+                a.reviews__add-btn.add-btn--square
+                  .works__add-btn-circle
+                    .works__add-btn-cross +
+                  .works__add-btn-text Add new reviews
+                .reviews__item
+                  .reviews__user
+                    .reviews__avatar
+                      img.reviews__pic(src="../../../images/content/user.jpg")
+                  .reviews__info
+                      .reviews__name Vladimir Sabantsev
+                      .reviews__occup Front-end developer
+                  .reviews__desc Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur dignissimos ducimus ea eaque earum eum impedit ipsam laborum, modi nemo officiis optio possimus recusandae repellendus sunt suscipit tenetur velit!
+                  .reviews__control
+                    button.reviws__btn.span-btn.span-btn--edit
+                      .span-btn__text Edit
+                      .span-btn__icon.span-btn__icon--edit
+                    button.reviews__btn.span-btn.span-btn--delete
+                      .span-btn__text Delete
+                      .span-btn__icon.span-btn__icon--delete
+                .reviews__item
+                    .reviews__user
+                      .reviews__avatar
+                        img.reviews__pic(src="../../../images/content/user.jpg")
+                      .reviews__info
+                        .reviews__name Vladimir Sabantsev
+                        .reviews__occup Front-end developer
+                    .reviews__desc Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur dignissimos ducimus ea eaque earum eum impedit ipsam laborum, modi nemo officiis optio possimus recusandae repellendus sunt suscipit tenetur velit!
+                    .reviews__control
+                      button.reviws__btn.span-btn.span-btn--edit
+                        .span-btn__text Edit
+                        .span-btn__icon.span-btn__icon--edit
+                      button.reviews__btn.span-btn.span-btn--delete
+                        .span-btn__text Delete
+                        .span-btn__icon.span-btn__icon--delete
+                .reviews__item
+                    .reviews__user
+                      .reviews__avatar
+                        img.reviews__pic(src="../../../images/content/user.jpg")
+                      .reviews__info
+                        .reviews__name Vladimir Sabantsev
+                        .reviews__occup Front-end developer
+                    .reviews__desc Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur dignissimos ducimus ea eaque earum eum impedit ipsam laborum, modi nemo officiis optio possimus recusandae repellendus sunt suscipit tenetur velit!
+                    .reviews__control
+                      button.reviws__btn.span-btn.span-btn--edit
+                        .span-btn__text Edit
+                        .span-btn__icon.span-btn__icon--edit
+                      button.reviews__btn.span-btn.span-btn--delete
+                        .span-btn__text Delete
+                        .span-btn__icon.span-btn__icon--delete
 
 </template>
 
