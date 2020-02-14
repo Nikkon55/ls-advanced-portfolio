@@ -3,22 +3,50 @@
         .login
             .login__content
                 h1.login__title Authorization
-                form.login__form
+                form(@submit.prevent = "login").login__form
                     .login__form-row
                         label.login__label Username
                             .login__input-row
                                 .login__icon-box
                                     .login__icon.login__icon--user
-                                input.login__input(type="text" name="login")
+                                input.login__input(type="text" name="login" v-model="user.name")
                     .login__form-row
                         label.login__label Password
                             .login__input-row
                                 .login__icon-box
                                     .login__icon.login__icon--key
-                                input.login__input(type="text" name="login")
+                                input.login__input(type="text" name="login" v-model="user.password")
                     .login__form-row
                         button.login__btn(type="submit") Log-in       
 </template>
+
+<script>
+    import $axios from "../../requests"
+    export default {
+        data: ()=> ({
+            user: {
+                name: "",
+                password: ""
+            }
+        }),
+        methods:{
+            async login(){
+                try {
+                
+                   const response = await $axios.post("/login", this.user);
+                   const token = response.data.token;
+                   
+                   localStorage.setItem("token", token);
+                   $axios.defaults.headers["Authorization"] = `Bearer ${token}`;
+
+                   this.$router.replace("/");
+                } catch (error) {
+                    
+                }
+            }
+        }
+    }
+</script>
 
 <style lang="postcss">
   /* @import url("../mixins.pug"); */

@@ -10,6 +10,7 @@ import "./scripts/reviews";
 import "./scripts/skills";
 import "./scripts/contacts";
 import "./scripts/works";
+import '@babel/polyfill';
 
 
 

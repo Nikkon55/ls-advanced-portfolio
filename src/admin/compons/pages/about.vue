@@ -7,20 +7,21 @@
               .add-btn__img
                   .add-btn__icon
               .add-btn__text add new group
+      
           .about__content
-              form.about__form.form
+              form(@submit.prevent="addNewCategory").about__form.form
                 .form__header
                     .form__title
-                      input.form__input.form__input--name(type="text" name="name" placeholder ="Frontend")
+                      input.form__input.form__input--name(type="text" name="name" placeholder ="Frontend" v-model="title")
                     .form__control-btns
-                      .btns__edit
+                      .btns__edit.hidden
                         .btn-edit__container
                           button.btn-edit
                         .btn-delete__container 
                           button.btn-delete
-                      .btns__yes-no.hidden
+                      .btns__yes-no
                         .btn-yes__container
-                          button.btn-yes
+                          button.btn-yes(type="submit")
                         .btn-no__container  
                           button.btn-no
                 .form__content
@@ -104,6 +105,8 @@
                     button.add-btn.add-btn--skill-add
                       .add-btn__img
                         .add-btn__icon
+      ul.categories__list
+        li.categories__item(v-for="category in categories")   
 </template>
 
 <style lang="postcss">
@@ -366,3 +369,31 @@ position: relative;
 
 
 </style>
+<script>
+import {mapActions, mapState} from 'vuex';
+  export default {
+    data: () => ({
+      title:""
+    }),
+    computed: {
+      ...mapState('categories', {
+        categories: state => state.categories
+      })
+    },
+    created(){
+      this.fetchCategories();
+    },
+    methods: {
+      ...mapActions('categories', ["addCategory", "fetchCategories"]),
+      async addNewCategory(){
+        try {
+          await this.addCategory(this.title);
+        } catch (error) {
+          alert(error.message);
+        }
+        
+      }
+    }
+  };
+
+</script>
