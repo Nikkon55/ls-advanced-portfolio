@@ -56,8 +56,8 @@
 
 
   .wrapper{
-      height: 100vh;
-      width: 100vw;
+      min-height: 100%;
+      minwidth: 100%;
   }
   .login{
     background: url(../../../images/content/6-layers.jpg);

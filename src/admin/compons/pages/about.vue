@@ -105,8 +105,10 @@
                     button.add-btn.add-btn--skill-add
                       .add-btn__img
                         .add-btn__icon
-      ul.categories__list
-        li.categories__item(v-for="category in categories")   
+              
+          ul.categories__list
+            li.categories__item(v-for="category in categories")
+              skills-group(:category="category")   
 </template>
 
 <style lang="postcss">
@@ -115,11 +117,20 @@
   @import url("../../../styles/layout/base.pcss");
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
 
+.categories__list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.categories__item{
+  width: 49%;
+}
 
 .about{
   
-  width:100vw;
-  height: 100vh;
+  min-width:100%;
+  min-height: 100%;
 }
 .about__first-row{
   display: flex;
@@ -372,6 +383,9 @@ position: relative;
 <script>
 import {mapActions, mapState} from 'vuex';
   export default {
+    components: {
+      skillsGroup: () => import("../skills-group")
+    },
     data: () => ({
       title:""
     }),
