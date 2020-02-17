@@ -1,8 +1,8 @@
 <template lang="pug">
 form.about__form.form
     .form__header 
-        .form__title {{ category.category }}
-            input.form__input.form__input--name(type="text" name="name" placeholder ="frontend")
+        .form__title
+            input.form__input.form__input--name(type="text" name="name" v-model="category.category")
         .form__control-btns
             .btns__edit
                 .btn-edit__container
@@ -15,22 +15,23 @@ form.about__form.form
                 .btn-no__container  
                     button.btn-no
     .form__content
-        .form__row
-            .form__row-input-box
-                input.form__row-input(type="text" name="name" placeholder ="Frontend")
-            .form__row--persent-box
-                input.input.form__row-input--persent(type="number" min="0" max="100")
-            .form__control-btns
-            .btns__edit
-                .btn-edit__container
-                    button.btn-edit
-                .btn-delete__container 
-                    button.btn-delete
-            .btns__yes-no.hidden
-                .btn-yes__container
-                    button.btn-yes
-                .btn-no__container  
-                    button.btn-no
+        skill-item(v-for= "skill in category.skills" :key="skill.id" :skill="skill")
+        //- .form__row(v-for= "skill in category.skills")
+        //-     .form__row-input-box
+        //-         input.form__row-input(type="text" name="name" v-model="skill.title")
+        //-     .form__row--persent-box
+        //-         input.input.form__row-input--persent(type="number" min="0" max="100" v-model="skill.percent")
+        //-     .form__control-btns
+        //-     .btns__edit
+        //-         .btn-edit__container
+        //-             button.btn-edit
+        //-         .btn-delete__container 
+        //-             button.btn-delete
+        //-     .btns__yes-no.hidden
+        //-         .btn-yes__container
+        //-             button.btn-yes
+        //-         .btn-no__container  
+        //-             button.btn-no
         .form__row
             .form__row-input-box
                 input.form__row-input(type="text" name="name" placeholder ="Frontend")
@@ -64,22 +65,48 @@ form.about__form.form
                 .btn-no__container  
                     button.btn-no                 
 
-    .form__bottom
-        input.input.input.form__input.form__input--skill-add(type="text" name="name" placeholder ="New skill")
+    form(@submit.prevent = "addNewSkill").form__bottom
+        input.input.input.form__input.form__input--skill-add(type="text" name="name" placeholder ="New skill" v-model="skill.title")
         .form__input--persent-box
-            input.input.form__input--persent(type="number" min="0" max="100")
-        button.add-btn.add-btn--skill-add
+            input.input.form__input--persent(type="number" min="0" max="100" v-model="skill.percent")
+        button(type="submit").add-btn.add-btn--skill-add
             .add-btn__img
             .add-btn__icon
 </template>
 
 <script>
+    import {mapActions} from 'vuex';
+
     export default {
+        components:{
+            skillItem: () => import("./skill-item")
+        },
+        data() {
+            return {
+                skill: {
+                    title:"",
+                    percent: 0,
+                    category: this.category.id
+                }
+            }
+            
+        },
         props: {
             category:{
                 type: Object,
                 default: ()=>{},
                 required: true
+            }
+        },
+        methods: {
+            ...mapActions("skills",["addSkill"]),
+           async addNewSkill(){
+               try {
+                   this.addSkill(this.skill)
+               } catch (error) {
+                   
+               }
+                
             }
         }
     }

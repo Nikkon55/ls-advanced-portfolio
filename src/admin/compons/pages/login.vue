@@ -1,5 +1,5 @@
 <template lang="pug">
-    .wrapper
+    .login--wrapper
         .login
             .login__content
                 h1.login__title Authorization
@@ -55,14 +55,14 @@
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
 
 
-  .wrapper{
+  .login--wrapper{
       min-height: 100%;
-      minwidth: 100%;
+      min-width: 100%;
   }
   .login{
     background: url(../../../images/content/6-layers.jpg);
-    height: 100%;
-    width: 100%;
+    min-height: 100vh;
+    min-width: 100%;
     background-size: cover;
     opacity: 0.7;
     position: relative;

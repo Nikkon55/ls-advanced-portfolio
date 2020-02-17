@@ -25,11 +25,11 @@
                         .btn-no__container  
                           button.btn-no
                 .form__content
-                .form__bottom
+                form.form__bottom
                     input.input.input.form__input.form__input--skill-add(type="text" name="name" placeholder ="New skill")
                     .form__input--persent-box
-                    input.input.form__input--persent(type="number" min="0" max="100")
-                    button.add-btn.add-btn--skill-add
+                      input.input.form__input--persent(type="number" min="0" max="100")
+                    button(type="submit").add-btn.add-btn--skill-add
                       .add-btn__img
                         .add-btn__icon
 
@@ -98,7 +98,7 @@
                             .btn-no__container  
                                 button.btn-no                 
 
-                .form__bottom
+                form.form__bottom
                     input.input.input.form__input.form__input--skill-add(type="text" name="name" placeholder ="New skill")
                     .form__input--persent-box
                       input.input.form__input--persent(type="number" min="0" max="100")
