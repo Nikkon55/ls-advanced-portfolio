@@ -102,7 +102,9 @@ form.about__form.form
             ...mapActions("skills",["addSkill"]),
            async addNewSkill(){
                try {
-                   this.addSkill(this.skill)
+                  await this.addSkill(this.skill)
+                   this.skill.title="";
+                   this.skill.percent="";
                } catch (error) {
                    
                }
