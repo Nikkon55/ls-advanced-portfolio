@@ -3,114 +3,71 @@
       .container
           .about__first-row
             .about__title "About-me" section
-            button.add-btn
+            button.add-btn(@click.prevent="addform=true")
               .add-btn__img
                   .add-btn__icon
               .add-btn__text add new group
       
           .about__content
-              form(@submit.prevent="addNewCategory").about__form.form
+              form(@submit.prevent="addNewCategory" v-if="addform==true").about__form.form
                 .form__header
                     .form__title
                       input.form__input.form__input--name(type="text" name="name" placeholder ="Frontend" v-model="title")
-                    .form__control-btns
-                      .btns__edit.hidden
-                        .btn-edit__container
-                          button.btn-edit
-                        .btn-delete__container 
-                          button.btn-delete
-                      .btns__yes-no
-                        .btn-yes__container
-                          button.btn-yes(type="submit")
-                        .btn-no__container  
-                          button.btn-no
+                    
+                          
+                    .btns__yes-no
+                      .btn-yes__container
+                        button.btn-yes(type="submit")
+                      .btn-no__container  
+                        button.btn-no(@click.prevent="addform=false")
                 .form__content
                 form.form__bottom
-                    input.input.input.form__input.form__input--skill-add(type="text" name="name" placeholder ="New skill")
+                    input.input.input.form__input.form__input--skill-add(type="text" name="name" placeholder ="New skill" :disabled="addform==true")
                     .form__input--persent-box
-                      input.input.form__input--persent(type="number" min="0" max="100")
+                      input.input.form__input--persent(type="number" min="0" max="100" :disabled="addform==true")
                     button(type="submit").add-btn.add-btn--skill-add
                       .add-btn__img
                         .add-btn__icon
 
-              form.about__form.form
-                .form__header
-                  .form__title
-                    input.form__input.form__input--name(type="text" name="name" placeholder ="Frontend")
-                  .form__control-btns
-                    .btns__edit
-                      .btn-edit__container
-                        button.btn-edit
-                      .btn-delete__container 
-                        button.btn-delete
-                    .btns__yes-no.hidden
-                      .btn-yes__container
-                        button.btn-yes
-                      .btn-no__container  
-                        button.btn-no
-                .form__content
-                    .form__row
-                      .form__row-input-box
-                          input.form__row-input(type="text" name="name" placeholder ="Frontend")
-                      .form__row--persent-box
-                          input.input.form__row-input--persent(type="number" min="0" max="100")
-                      .form__control-btns
-                        .btns__edit
-                          .btn-edit__container
-                              button.btn-edit
-                          .btn-delete__container 
-                              button.btn-delete
-                        .btns__yes-no.hidden
-                          .btn-yes__container
-                              button.btn-yes
-                          .btn-no__container  
-                              button.btn-no
-                    .form__row
-                      .form__row-input-box
-                          input.form__row-input(type="text" name="name" placeholder ="Frontend")
-                      .form__row--persent-box
-                          input.input.form__row-input--persent(type="number" min="0" max="100")
-                      .form__control-btns
-                          .btns__edit
-                            .btn-edit__container
-                                button.btn-edit
-                            .btn-delete__container 
-                                button.btn-delete
-                          .btns__yes-no.hidden
-                            .btn-yes__container
-                                button.btn-yes
-                            .btn-no__container  
-                                button.btn-no
-                    .form__row
-                      .form__row-input-box
-                          input.form__row-input(type="text" name="name" placeholder ="Frontend")
-                      .form__row--persent-box
-                          input.input.form__row-input--persent(type="number" min="0" max="100")
-                      .form__control-btns
-                          .btns__edit
-                            .btn-edit__container
-                                button.btn-edit
-                            .btn-delete__container 
-                                button.btn-delete
-                          .btns__yes-no.hidden
-                            .btn-yes__container
-                                button.btn-yes
-                            .btn-no__container  
-                                button.btn-no                 
-
-                form.form__bottom
-                    input.input.input.form__input.form__input--skill-add(type="text" name="name" placeholder ="New skill")
-                    .form__input--persent-box
-                      input.input.form__input--persent(type="number" min="0" max="100")
-                    button.add-btn.add-btn--skill-add
-                      .add-btn__img
-                        .add-btn__icon
+              
               
           ul.categories__list
             li.categories__item(v-for="category in categories")
               skills-group(:category="category")   
 </template>
+<script>
+import {mapActions, mapState} from 'vuex';
+  export default {
+    components: {
+      skillsGroup: () => import("../skills-group")
+    },
+    data: () => ({
+      title:"",
+      addform: false
+    }),
+    computed: {
+      ...mapState('categories', {
+        categories: state => state.categories
+      })
+    },
+    created(){
+      this.fetchCategories();
+    },
+    methods: {
+      ...mapActions('categories', ["addCategory", "fetchCategories"]),
+      async addNewCategory(){
+        try {
+          await this.addCategory(this.title);
+          this.addform=false;
+        } catch (error) {
+          alert(error.message);
+        }
+        
+      }
+    }
+  };
 
+</script>
 <style lang="postcss">
   /* @import url("../mixins.pug"); */
   @import url("../../../styles/mixins.pcss");
@@ -125,12 +82,17 @@
 
 .categories__item{
   width: 49%;
+  margin-bottom: 20px;
 }
 
 .about{
   
   min-width:100%;
   min-height: 100%;
+}
+
+.about__form {
+  width: 100%;
 }
 .about__first-row{
   display: flex;
@@ -145,7 +107,13 @@
 .about__content {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 30px;
 }
+
+.about__content .about__form{
+  width: 100%;
+}
+
 
 .add-btn{
   color: $purple;
@@ -269,6 +237,9 @@
   }
   &__title{
     width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
@@ -380,34 +351,3 @@ position: relative;
 
 
 </style>
-<script>
-import {mapActions, mapState} from 'vuex';
-  export default {
-    components: {
-      skillsGroup: () => import("../skills-group")
-    },
-    data: () => ({
-      title:""
-    }),
-    computed: {
-      ...mapState('categories', {
-        categories: state => state.categories
-      })
-    },
-    created(){
-      this.fetchCategories();
-    },
-    methods: {
-      ...mapActions('categories', ["addCategory", "fetchCategories"]),
-      async addNewCategory(){
-        try {
-          await this.addCategory(this.title);
-        } catch (error) {
-          alert(error.message);
-        }
-        
-      }
-    }
-  };
-
-</script>

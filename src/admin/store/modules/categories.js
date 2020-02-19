@@ -6,6 +6,17 @@ export default {
     mutations:{
         SET_CATEGORIES: (state, data) => state.categories = data,
         ADD_CATEGORY: (state, category) => state.categories.push(category),
+        DELETE_CATEGORY: (state, deletedCategoryId) => {
+            state.categories = state.categories.filter(
+                category => category.id !== deletedCategoryId
+            );
+          },
+        
+        EDIT_CATEGORY: (state, editedCategory) => {
+        state.categories = state.categories.map(category => {
+            return category.id === editedCategory.id ? editedCategory : category;
+        });
+        },  
         ADD_SKILL: (state, newSkill) => {
             state.categories = state.categories.map(category=>{
                 if(category.id===newSkill.category){
@@ -59,7 +70,8 @@ export default {
             } catch (error) {
                 
             }
-        }
+        },
+        
     }
 
 };

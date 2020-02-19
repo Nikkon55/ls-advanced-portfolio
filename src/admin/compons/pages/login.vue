@@ -15,7 +15,7 @@
                             .login__input-row
                                 .login__icon-box
                                     .login__icon.login__icon--key
-                                input.login__input(type="text" name="login" v-model="user.password")
+                                input.login__input(type="password" name="login" v-model="user.password")
                     .login__form-row
                         button.login__btn(type="submit") Log-in       
 </template>
