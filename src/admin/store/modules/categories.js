@@ -16,41 +16,8 @@ export default {
         state.categories = state.categories.map(category => {
             return category.id === editedCategory.id ? editedCategory : category;
         });
-        },  
-        ADD_SKILL: (state, newSkill) => {
-            state.categories = state.categories.map(category=>{
-                if(category.id===newSkill.category){
-                    category.skills.push(newSkill);
-                }
-                return category;
-            })
-        },
-
-        REMOVE_SKILL: (state, deletedSkill) => {
-            state.categories = state.categories.map(category=>{
-                if(category.id===deletedSkill.category){
-                    category.skills = category.skills.filter(skill => skill.id !== deletedSkill.id)
-                }
-
-                return category;
-            })
-        },
-        EDIT_SKILL: (state, editedSkill) => {
-            const editSkillInCategory = category => {
-                category.skills= category.skills.map(skill=>{
-                    return skill.id ==editedSkill.id ? editedSkill : skill;
-                })
-            };
-
-            const findCategory = category => {
-                if (category.id==editedSkill.category) {
-                    editSkillInCategory(category);
-                }
-            
-
-                return category;
-            }
         }
+        
     },
     actions:{
         async addCategory({commit}, title){
@@ -71,6 +38,26 @@ export default {
                 
             }
         },
+
+        async deleteCategory({ commit }, categoryId) {
+            try {
+              const response = await this.$axios.delete(`/categories/${categoryId}`);
+              commit("DELETE_CATEGORY", categoryId);
+              return response;
+            } catch {
+              
+            }
+        },
+
+        async editCategory({ commit }, editedCategory) {
+            try {
+              const response = await this.$axios.post(`/categories/${editedCategory.id}`, editedCategory);
+              commit("UPDATE_CATEGORY", response.data.category);
+              return response;
+            } catch (e) {
+              
+            }
+        }
         
     }
 

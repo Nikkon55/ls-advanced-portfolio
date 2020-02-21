@@ -5,7 +5,8 @@ Vue.use(Vuex);
 
 import categories from './modules/categories';
 import skills from './modules/skills';
-import works from './modules/works'
+import works from './modules/works';
+import form from '../helpers/form';
 
 export const store = new Vuex.Store({
     modules:{

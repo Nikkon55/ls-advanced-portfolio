@@ -33,7 +33,7 @@
               
           ul.categories__list
             li.categories__item(v-for="category in categories")
-              skills-group(:category="category")   
+              skills-group(:category="category" :skills ="filterCategorySkills(category.id)")   
 </template>
 <script>
 import {mapActions, mapState} from 'vuex';
@@ -48,13 +48,21 @@ import {mapActions, mapState} from 'vuex';
     computed: {
       ...mapState('categories', {
         categories: state => state.categories
+      }),
+      ...mapState('skills', {
+        skills: state => state.skills
       })
     },
     created(){
       this.fetchCategories();
+      this.getSkills();
     },
     methods: {
       ...mapActions('categories', ["addCategory", "fetchCategories"]),
+      ...mapActions('skills', ["getSkills"]),
+      filterCategorySkills(catid) {
+		    return this.skills.filter(skill => skill.category === catid);
+		  },
       async addNewCategory(){
         try {
           await this.addCategory(this.title);

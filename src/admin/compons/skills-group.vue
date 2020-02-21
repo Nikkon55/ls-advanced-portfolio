@@ -15,7 +15,7 @@ form.about__form.form
                 .btn-no__container  
                     button.btn-no(@click.prevent="editmode=false")
     .form__content
-        skill-item(v-for= "skill in category.skills" :key="skill.id" :skill="skill")
+        skill-item(v-for= "skill in skills" :key="skill.id" :skill="skill")
         
     form(@submit.prevent = "addNewSkill").form__bottom
         input.input.input.form__input.form__input--skill-add(type="text" name="name" placeholder ="New skill" v-model="skill.title")
@@ -47,14 +47,12 @@ form.about__form.form
             
         },
         props: {
-            category:{
-                type: Object,
-                default: ()=>{},
-                required: true
-            }
+            skills:Array,
+            category: Object
         },
         methods: {
-            ...mapActions("skills",["addSkill","deleteCategory", "editCategory"]),
+            ...mapActions("skills",["addSkill"]),
+            ...mapActions("categories", ["deleteCategory", "editCategory"]),
            async addNewSkill(){
                try {
                   await this.addSkill(this.skill)

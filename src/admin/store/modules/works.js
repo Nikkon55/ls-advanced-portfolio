@@ -1,3 +1,4 @@
+import {wrapIntoFormData} from "../../helpers/form";
 export default {
     namespaced: true,
     state: {
@@ -9,9 +10,11 @@ export default {
     
     actions:{
         async addWork({commit}, work){
+            const data = wrapIntoFormData(work);
             try {
-                const {data} = await this.$axios.post("/works", work);
-                commit("ADD_WORK", data, {root:true});
+                const response = await this.$axios.post("/works", data);
+                commit("ADD_WORK", response.data);
+                return response;
             } catch (error) {
              throw new Error(error.response.data.error || error.response.data.message);
             }

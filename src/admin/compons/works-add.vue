@@ -6,8 +6,9 @@
             .form__content-left
                 .form__row.form__row--upload
                 label.form__label-upload
+                    vue-dropzone(id="drop1" :options="dropOptions")
                     .form__label-info Drag&Drop or choose the Image
-                    input.form__file-upload(type="file" )
+                    input.form__file-upload(type="file" @change="loadPhoto")
                     button.form__file-btn.main-btn Upload
             .form__content-right
                 .form-row
@@ -40,7 +41,59 @@
 <script>
     import {mapActions} from "vuex";
     import Vue from "vue";
+    import vueDropzone from "vue2-dropzone";
     export default {
+        components: {
+            vueDropzone
+        },
+        data(){
+            return{
+                photoUrl:"",
+                work: {
+                    title: "",
+                    techs: "",
+                    photo: "",
+                    link: "",
+                    description: ""
+
+                },
+                dropOptions: {
+                    url: 'https://httpbin.org/post',
+                    maxFilesize: 1.5,
+                    maxFiles: 1,
+                    chunking: false,
+                    addRemoveLinks: false
+                    
+                }
+            }
+        },
+        methods: {
+            ...mapActions("works", ["addWork"]),
+            loadPhoto(e){
+                const file = e.target.files[0];
+                this.work.photo = file;
+                this.getPhoto(file);
+            },
+            getPhoto(file){
+                const reader = new FileReader();
+                try {
+                    reader.readAsDataURL(file);
+                    reader.onload = () => {
+                        this.photoUrl = reader.result;
+                    }
+                } catch (error) {}
+
+            },
+            async addNewWork(){
+             try {
+                const response = this.addWork(this.work);
+                this.work ={};
+                    
+             } catch (error) {
+                 
+             }
+            }
+        }
         
     }
 

@@ -117,22 +117,15 @@
         },
         data() {
             return {
-                work: {
-                    title: "",
-                    techs: "",
-                    photo: "",
-                    link: "",
-                    description: ""
-
-                },
+                
             }
         },
-        methods: {
-            ...mapActions("works", ["addWork"]),
-            addNewWork(){
-             this.addWork(this.work)
-            }
-        }
+        // methods: {
+        //     ...mapActions("works", ["addWork"]),
+        //     addNewWork(){
+        //      this.addWork(this.work)
+        //     }
+        // }
     }
 </script>
 <style lang="postcss">
@@ -207,7 +200,9 @@
     
     }
     .form__file-upload{
-    display: none;
+        background: transparent;
+        width: 100%;
+        height: 100%;
     }
     .main-btn{
     color: #ffffff;
