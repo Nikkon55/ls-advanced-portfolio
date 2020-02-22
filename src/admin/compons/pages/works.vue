@@ -52,80 +52,94 @@
                             .works__add-btn-cross +
                         .works__add-btn-text Add new project
 
-                    .works__item
-                        .works__image
-                            img.works__pic(src="../../../images/content/prew1.jpg")
-                            ul.works__tags
-                                li.works__tag HTML
-                                li.works__tag JS
-                                li.works__tag css
-                        .works__desc
-                            h3.works__title Project name
-                            .works__text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur dignissimos ducimus ea eaque earum eum impedit ipsam laborum, modi nemo officiis optio possimus recusandae repellendus sunt suscipit tenetur velit!
-                            a.works__link www.google.com
-                        .works__control
-                            button.works__btn.span-btn.span-btn--edit
-                                .span-btn__text Edit
-                                .span-btn__icon.span-btn__icon--edit
-                            button.works__btn.span-btn.span-btn--delete
-                                .span-btn__text Delete
-                                .span-btn__icon.span-btn__icon--delete
-                    .works__item
-                        .works__image
-                            img.works__pic(src="../../../images/content/prew1.jpg")
-                            ul.works__tags
-                                li.works__tag HTML
-                                li.works__tag JS
-                                li.works__tag css
-                        .works__desc
-                            h3.works__title Project name
-                            .works__text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur dignissimos ducimus ea eaque earum eum impedit ipsam laborum, modi nemo officiis optio possimus recusandae repellendus sunt suscipit tenetur velit!
-                            a.works__link www.google.com
-                        .works__control
-                            button.works__btn.span-btn.span-btn--edit
-                                .span-btn__text Edit
-                                .span-btn__icon.span-btn__icon--edit
-                            button.works__btn.span-btn.span-btn--delete
-                                .span-btn__text Delete
-                                .span-btn__icon.span-btn__icon--delete
-                    .works__item
-                        .works__image
-                            img.works__pic(src="../../../images/content/prew1.jpg")
-                            ul.works__tags
-                                li.works__tag HTML
-                                li.works__tag JS
-                                li.works__tag css
-                        .works__desc
-                            h3.works__title Project name
-                            .works__text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur dignissimos ducimus ea eaque earum eum impedit ipsam laborum, modi nemo officiis optio possimus recusandae repellendus sunt suscipit tenetur velit!
-                            a.works__link www.google.com
-                        .works__control
-                            button.works__btn.span-btn.span-btn--edit
-                                .span-btn__text Edit
-                                .span-btn__icon.span-btn__icon--edit
-                            button.works__btn.span-btn.span-btn--delete
-                                .span-btn__text Delete
-                                .span-btn__icon.span-btn__icon--delete
-
+                    //- .works__item
+                    //-     .works__image
+                    //-         img.works__pic(src="../../../images/content/prew1.jpg")
+                    //-         ul.works__tags
+                    //-             li.works__tag HTML
+                    //-             li.works__tag JS
+                    //-             li.works__tag css
+                    //-     .works__desc
+                    //-         h3.works__title Project name
+                    //-         .works__text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur dignissimos ducimus ea eaque earum eum impedit ipsam laborum, modi nemo officiis optio possimus recusandae repellendus sunt suscipit tenetur velit!
+                    //-         a.works__link www.google.com
+                    //-     .works__control
+                    //-         button.works__btn.span-btn.span-btn--edit
+                    //-             .span-btn__text Edit
+                    //-             .span-btn__icon.span-btn__icon--edit
+                    //-         button.works__btn.span-btn.span-btn--delete
+                    //-             .span-btn__text Delete
+                    //-             .span-btn__icon.span-btn__icon--delete
+                    //- .works__item
+                    //-     .works__image
+                    //-         img.works__pic(src="../../../images/content/prew1.jpg")
+                    //-         ul.works__tags
+                    //-             li.works__tag HTML
+                    //-             li.works__tag JS
+                    //-             li.works__tag css
+                    //-     .works__desc
+                    //-         h3.works__title Project name
+                    //-         .works__text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur dignissimos ducimus ea eaque earum eum impedit ipsam laborum, modi nemo officiis optio possimus recusandae repellendus sunt suscipit tenetur velit!
+                    //-         a.works__link www.google.com
+                    //-     .works__control
+                    //-         button.works__btn.span-btn.span-btn--edit
+                    //-             .span-btn__text Edit
+                    //-             .span-btn__icon.span-btn__icon--edit
+                    //-         button.works__btn.span-btn.span-btn--delete
+                    //-             .span-btn__text Delete
+                    //-             .span-btn__icon.span-btn__icon--delete
+                    //- .works__item
+                    //-     .works__image
+                    //-         img.works__pic(src="../../../images/content/prew1.jpg")
+                    //-         ul.works__tags
+                    //-             li.works__tag HTML
+                    //-             li.works__tag JS
+                    //-             li.works__tag css
+                    //-     .works__desc
+                    //-         h3.works__title Project name
+                    //-         .works__text Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequatur dignissimos ducimus ea eaque earum eum impedit ipsam laborum, modi nemo officiis optio possimus recusandae repellendus sunt suscipit tenetur velit!
+                    //-         a.works__link www.google.com
+                    //-     .works__control
+                    //-         button.works__btn.span-btn.span-btn--edit
+                    //-             .span-btn__text Edit
+                    //-             .span-btn__icon.span-btn__icon--edit
+                    //-         button.works__btn.span-btn.span-btn--delete
+                    //-             .span-btn__text Delete
+                    //-             .span-btn__icon.span-btn__icon--delete
+                    .works__item(v-for="work in works" :key = "work.id")
+                        works-item(:work = "work")
     
 </template>
 <script>
-    import {mapActions} from "vuex";
+    import {mapActions, mapState} from "vuex";
+    import {getAbsoluteImgPath} from "../../helpers/pictures"
     export default {
         components:{
-            worksAdd: () => import("../works-add")
+            worksAdd: () => import("../works-add"),
+            worksItem: () => import("../works-item")
+        },
+        computed:{
+            ...mapState("works", {works: state => state.works})
         },
         data() {
             return {
                 
             }
         },
-        // methods: {
-        //     ...mapActions("works", ["addWork"]),
-        //     addNewWork(){
-        //      this.addWork(this.work)
-        //     }
-        // }
+        methods: {
+            ...mapActions('works', ["getWorks"]),
+      
+     
+        },
+        async created(){
+            try {
+                await this.getWorks();
+                console.log(works);
+            } catch (error) {
+                
+            }
+        }
+        
     }
 </script>
 <style lang="postcss">
