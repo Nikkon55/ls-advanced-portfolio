@@ -2,7 +2,8 @@ import {wrapIntoFormData} from "../../helpers/form";
 export default {
     namespaced: true,
     state: {
-        works:[]
+        works:[],
+        editedWork: {}
     },
     mutations: {
         ADD_WORK: (state, work) => state.work.push(work),
@@ -14,6 +15,9 @@ export default {
         },
         EDIT_WORK: (state, editedWork) => {
             state.works = state.works.map(work => work.id === editedWork.id ? editedWork : work);
+        },
+        SET_EDITED_WORK: (state, editedWorkId) => {
+            state.editedWork = state.works.filter(work => work.id === editedWorkId)[0];
         }
     },
     

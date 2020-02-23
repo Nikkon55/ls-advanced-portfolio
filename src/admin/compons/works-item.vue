@@ -11,7 +11,7 @@
             .works__text {{work.description}}
             a.works__link(:href="work.link") {{work.link}}
         .works__control
-            button.works__btn.span-btn.span-btn--edit(@click.prevent="editworks=true")
+            button.works__btn.span-btn.span-btn--edit(@click.prevent="changeWork")
                 .span-btn__text Edit
                 .span-btn__icon.span-btn__icon--edit
             button.works__btn.span-btn.span-btn--delete(@click.prevent="removeExistedWork")
@@ -20,13 +20,13 @@
 </template>
 
 <script>
-import { mapActions} from 'vuex';
+import { mapActions, mapMutations} from 'vuex';
 import {getAbsoluteImgPath} from "../helpers/pictures";
 
 export default {
   props: {
     work: Object,
-    editworks: Boolean
+    
 	},
   data() {
     return {
@@ -37,6 +37,7 @@ export default {
     
     methods: {
         ...mapActions("works", ["deleteWork"]),
+        ...mapMutations("works",["SET_EDITED_WORK"]),
         async removeExistedWork(){
             try {
                 await this.deleteWork(this.work.id);
@@ -44,6 +45,10 @@ export default {
                 
             }
         },
+        changeWork(){
+            this.SET_EDITED_WORK(this.editedWork.id);
+            this.$emit('changeEditMode');
+        }
     }
 }
 </script>

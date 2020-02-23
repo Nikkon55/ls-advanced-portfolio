@@ -5,7 +5,7 @@
             .works__header
                 h1.works__title.section__title Section "Portfolio"
             .works__content
-                works-add
+                works-add(@changeEditMode='changeEditMode' :editworks = "editworks" v-if="addFormVisible")
                 //- form.form.works__form(@submit.prevent="addNewWork")
                 //-     .form__header
                 //-         h2.form__title Edit Portfolio
@@ -47,7 +47,7 @@
         section.works
             .container
                 .works__preview
-                    a.works__add-btn.add-btn--square
+                    a.works__add-btn.add-btn--square(@click.prevent="showAddForm")
                         .works__add-btn-circle
                             .works__add-btn-cross +
                         .works__add-btn-text Add new project
@@ -107,7 +107,7 @@
                     //-             .span-btn__text Delete
                     //-             .span-btn__icon.span-btn__icon--delete
                     .works__item(v-for="work in works" :key = "work.id")
-                        works-item(:work = "work")
+                        works-item(:work = "work" @changeEditMode='changeEditMode')
     
 </template>
 <script>
@@ -123,12 +123,18 @@
         },
         data() {
             return {
-                
+                editworks:false,
+                addFormVisible: false
             }
         },
         methods: {
             ...mapActions('works', ["getWorks"]),
-      
+            changeEditMode(){
+                this.editworks = !this.editworks;
+            },
+            showAddForm(){
+                this.addFormVisible = !this.addFormVisible
+            }
      
         },
         async created(){
@@ -202,6 +208,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
     
     }
     .form__label-info{
@@ -214,9 +221,14 @@
     
     }
     .form__file-upload{
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
         background: transparent;
         width: 100%;
         height: 100%;
+        cursor: pointer;
     }
     .main-btn{
     color: #ffffff;
